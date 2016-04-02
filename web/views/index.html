@@ -14,14 +14,14 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
 
-	<link rel="stylesheet" href="css/core.css" />
-	<link rel="stylesheet" href="css/owl.carousel.css" />
+        <link rel="stylesheet" href="{{ app.asset_path }}/css/core.css" />
+        <link rel="stylesheet" href="{{ app.asset_path }}/css/owl.carousel.css" />
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="js/countUp.min.js"></script>
-	<script src="js/owl.carousel.js"></script>
+        <script src="{{ app.asset_path }}/js/countUp.min.js"></script>
+	<script src="{{ app.asset_path }}/js/owl.carousel.js"></script>
 
 </head>
 
@@ -30,7 +30,7 @@
 		<div class="photos"></div>
 
 		<div class="mix">
-			<img class="logo img-round" src="img/logo.jpg">
+                    <img class="logo img-round" src="{{ app.asset_path }}/img/logo.jpg">
 		</div>
 	</section>
 
