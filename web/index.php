@@ -12,10 +12,112 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
-$app->match('/', function() use ($app){
-    return $app['twig']->render('index.html');
+$app->match('/', function() use ($app) {
+	$query = $app['db']->createQueryBuilder()
+				->select("projectName, projectDescription, projectHolder")
+				->from("project");
+
+	$projects = $app['db']->fetchAll($query);
+
+	$query = $app['db']->createQueryBuilder()
+				->select("projectLinkUrl, projectLinkTitle")
+				->from("project_link");
+
+	$projectLinks = $app['db']->fetchAll($query);
+
+	$query = $app['db']->createQueryBuilder()
+				->select("idproject, photoName, photoDescription")
+				->from("project_photo");
+
+	$projectPhotos = $app['db']->fetchAll($query);
+
+	$query = $app['db']->createQueryBuilder()
+				->select("workshopName, workshopDate, workshopDescription")
+				->from("workshop");
+
+	$workshops = $app['db']->fetchAll($query);
+
+	$query = $app['db']->createQueryBuilder()
+				->select("workshopLinkUrl, workshopLinkTitle")
+				->from("workshop_link");
+	$workshopLinks = $app['db']->fetchAll($query);
+
+
+	$query = $app['db']->createQueryBuilder()
+				->select("idworkshop, photoName, photoDescription, photoUrl")
+				->from("workshop_photo");
+	$workshopPhotos = $app['db']->fetchAll($query);
+
+
+    return $app['twig']->render('index.html', array(
+    		'projects' => $projects,
+    		'workshops' => $workshops,
+    		'projectLinks' => $projectLinks,
+    		'workshopLinks' => $workshopLinks,
+    		'projectPhotos' => $projectPhotos,
+    		'workshopPhotos' => $workshopPhotos,
+    		'sponsors' => $sponsers,
+    	));
 });
 
+$app->match('workshop/{id}', function($id) use ($app){
+
+	$query = $app['db']->createQueryBuilder()
+				->select("workshopName, workshopDate, workshopDescription")
+				->from("workshop")
+				->where("idworkshop = :idworkshop");
+
+	$workshop = $app['db']->fetchAll($query, array( 'idworkshop'=>$id));
+
+	$query = $app['db']->createQueryBuilder()
+				->select("workshopLinkUrl, workshopLinkTitle")
+				->from("workshop_link")
+				->where("idworkshop = :idworkshop");
+	$workshopLinks = $app['db']->fetchAll($query, array( 'idworkshop'=>$id));
+
+
+	$query = $app['db']->createQueryBuilder()
+				->select("idworkshop, photoName, photoDescription, photoUrl")
+				->from("workshop_photo")
+				->where("idworkshop = :idworkshop");
+	$workshopPhotos = $app['db']->fetchAll($query, array( 'idworkshop'=>$id));
+
+	return $app['twig']->render('workshop.html', array(
+			'workshop' => $workshop[0],
+			'workshopLinks' => $workshopLinks,
+			'workshopPhotos' => $workshopPhotos,
+	));
+});
+
+
+$app->match('project/{id}', function($id) use ($app){
+
+	$query = $app['db']->createQueryBuilder()
+				->select("projectName, projectDescription, projectHolder")
+				->from("project")
+				->where("idproject = :idproject");
+
+	$project = $app['db']->fetchAll($query, array( 'idproject'=>$id));
+
+	$query = $app['db']->createQueryBuilder()
+				->select("projectLinkUrl, projectLinkTitle")
+				->from("project_link")
+				->where("idproject = :idproject");
+	$projectLinks = $app['db']->fetchAll($query, array( 'idproject'=>$id));
+
+
+	$query = $app['db']->createQueryBuilder()
+				->select("idproject, photoName, photoDescription, photoUrl")
+				->from("project_photo")
+				->where("idproject = :idproject");
+	$projectPhotos = $app['db']->fetchAll($query, array( 'idproject'=>$id));
+
+	return $app['twig']->render('project.html', array(
+			'project' => $project[0],
+			'projectLinks' => $projectLinks,
+			'projectPhotos' => $projectPhotos,
+	));
+});
 
 
 $app->run();

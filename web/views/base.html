@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hant-HK">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="shortcut icon" href="" sizes="32x32">
+
+	<title>{% block title %}主頁{% endblock %} | 一日一百香港 100In1Day Hong Kong</title>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
+
+    <link rel="stylesheet" href="{{ app.asset_path }}/css/core.css" />
+    <link rel="stylesheet" href="{{ app.asset_path }}/css/owl.carousel.css" />
+    
+    {% block head_css %}
+	{% endblock %}
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="{{ app.asset_path }}/js/countUp.min.js"></script>
+	<script src="{{ app.asset_path }}/js/owl.carousel.js"></script>
+	{% block head_javascript %}
+	{% endblock %}
+</head>
+
+<body>
+	{% block body_content %}
+	{% endblock %}
+	{% block body_javascript %}
+	{% endblock %}
+</body>
+</html>
