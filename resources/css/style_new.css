@@ -1,0 +1,224 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	color: #7a7d81;
+}
+
+.logo {
+	height: 300px;
+	width: 300px;
+	margin: 10rem 0;
+}
+
+#gallery {
+	position: relative;
+	width: 100%;
+	max-width: inherit;
+	overflow: hidden;
+}
+
+#gallery .photos {
+	position: absolute;
+	height: 100%;
+	width: 4000px;
+	background: transparent url(../img/100in1day_img3.jpg) repeat-x left top;
+	background-size: cover;
+	-moz-transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-animation: gallery 90s linear infinite;
+	-moz-animation: gallery 90s linear infinite;
+	-ms-animation: gallery 90s linear infinite;
+	animation: gallery 90s linear infinite;
+	z-index: 0;
+}
+
+#gallery .mix {
+	position: relative;
+	z-index: 3;
+}
+
+#header {
+	padding: 40px 0;
+	width: 100%;
+	background-color: #F36026;
+	color: #fff;
+}
+
+.meta span {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 6px 30px;
+}
+
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+img.img-round {
+	border-radius: 50%;
+}
+
+section {
+	text-align: center;
+}
+
+.kpi {
+	color: #fff;
+	font-size: 1.5rem;
+}
+
+.kpi .action {
+	margin-left: 2rem;
+}
+
+.kpi .big {
+	color: #fff;
+	font-size: 2.4em;
+}
+
+.owl-nav .owl-prev, 
+.owl-nav .owl-next {
+	display: inline-block;
+	margin: 1rem;
+}
+
+.section {
+	margin-bottom: 7rem;
+}
+
+.person,
+.project {
+	margin-bottom: 5rem;
+	text-align: left;
+}
+
+.shoutout {
+	display: table;
+	width: 100%;
+	color: #fff;
+}
+
+.intro p {
+	color: #333;
+	font-size: 1.125rem;
+}
+
+.shoutout .inner {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 392px;
+	background: transparent url('http://lorempixel.com/1200/600/') no-repeat center top;
+	background-size: cover;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.shoutout .text h3 {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 23px 0;
+	margin: 22px auto;
+	min-width: 44%;
+	font-size: 50px;
+	color: #fff;
+	font-family: "Lodgecode", "Helvetica Neue", helvetica, sans-serif;
+	text-transform: uppercase;
+	border-top: 1px solid rgba(255, 255, 255, 0.4);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.shoutout .text p {
+	padding: 0 20px;
+}
+
+h2 {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 30px;
+	margin: 30px auto 50px auto;
+	padding: 0 10px;
+	color: #3a3a47;
+	font-family: "Lodgecode", "Helvetica Neue", helvetica, sans-serif;
+	text-transform: uppercase;
+}
+
+h2:after {
+	content: "";
+	display: block;
+	margin: 8px 20px 0 20px;
+	border-bottom: 1px solid #e7e9ea;
+}
+
+h4 {
+	color: #3a3a47;
+	font-size: 26px;
+	margin: 20px 0 10px 0;
+}
+
+#map {
+	width: 100%;
+	height: 600px;
+}
+
+#map img {
+	max-height: none;
+	max-width: none;
+}
+
+@-webkit-keyframes gallery {
+	0% {
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		-moz-transform: translate3d(-4000px, 0, 0);
+		-webkit-transform: translate3d(-4000px, 0, 0);
+		transform: translate3d(-4000px, 0, 0);
+	}
+}
+
+@-moz-keyframes gallery {
+	0% {
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		-moz-transform: translate3d(-4000px, 0, 0);
+		-webkit-transform: translate3d(-4000px, 0, 0);
+		transform: translate3d(-4000px, 0, 0);
+	}
+}
+
+@-ms-keyframes gallery {
+	0% {
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		-moz-transform: translate3d(-4000px, 0, 0);
+		-webkit-transform: translate3d(-4000px, 0, 0);
+		transform: translate3d(-4000px, 0, 0);
+	}
+}
+
+@keyframes gallery {
+	0% {
+		-moz-transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		-moz-transform: translate3d(-4000px, 0, 0);
+		-webkit-transform: translate3d(-4000px, 0, 0);
+		transform: translate3d(-4000px, 0, 0);
+	}
+}
