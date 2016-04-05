@@ -109,8 +109,8 @@
 	<section class="support section">
 		<h2>支持組織</h2>
 		<div class="support-logo-container">
-			{% for sponsor in sponsors%}
-			<img class="support-logo" src="{{ app.asset_path }}/img/collaction.png">
+			{% for support in supports%}
+			<a href="{{ support.supportURL }}" ><img class="support-logo" title="{{ support.supportName }}" src="{{ app.upload_path }}/support/{{ support.supportLogo }}"></a>
 			{% endfor %}
 		</div>
 	</section>
@@ -180,7 +180,7 @@
 		})
 	});
 </script>
-<!--
+
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP_zgQmNpWvsby1y-GyBW5cIFevOJE1KI&signed_in=true&callback=initMap&sensor=false">
-</script>-->
+</script>
 {% endblock %}

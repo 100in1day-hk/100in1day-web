@@ -48,6 +48,10 @@ $app->match('/', function() use ($app) {
 				->from("workshop_photo");
 	$workshopPhotos = $app['db']->fetchAll($query);
 
+	$query = $app['db']->createQueryBuilder()
+				->select("id, supportName, supportURL, supportLogo")
+				->from('support');
+	$supports = $app['db']->fetchAll($query);			
 
     return $app['twig']->render('index.html', array(
     		'projects' => $projects,
@@ -56,7 +60,7 @@ $app->match('/', function() use ($app) {
     		'workshopLinks' => $workshopLinks,
     		'projectPhotos' => $projectPhotos,
     		'workshopPhotos' => $workshopPhotos,
-    		'sponsors' => $sponsers,
+    		'supports' => $supports,
     	));
 });
 

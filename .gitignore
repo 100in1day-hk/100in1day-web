@@ -2,4 +2,4 @@
 vendor
 views_tmp
 composer.lock
-
+resources/photos
