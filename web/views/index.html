@@ -1,50 +1,13 @@
-<!DOCTYPE HTML>
-<html lang="zh-Hant-HK">
+{% extends 'base.html' %}
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="shortcut icon" href="" sizes="32x32">
+{% block title %}主頁{% endblock %}
 
-	<title>一日一百香港 100In1Day Hong Kong</title>
-
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
-
-<<<<<<< HEAD
-	<link rel="stylesheet" href="{{ app.asset_path }}/resources/css/core.css" />
-	<link rel="stylesheet" href="{{ app.asset_path }}/resources/css/owl.carousel.css" />
-=======
-        <link rel="stylesheet" href="{{ app.asset_path }}/css/core.css" />
-        <link rel="stylesheet" href="{{ app.asset_path }}/css/owl.carousel.css" />
->>>>>>> 4c442936b4113f0af4a1fef65ab813f697b9b9c8
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
-	<script src="{{ app.asset_path }}/js/countUp.min.js"></script>
-	<script src="{{ app.asset_path }}/resources/js/owl.carousel.js"></script>
-=======
-        <script src="{{ app.asset_path }}/js/countUp.min.js"></script>
-        <script src="{{ app.asset_path }}/js/owl.carousel.js"></script>
->>>>>>> 4c442936b4113f0af4a1fef65ab813f697b9b9c8
-
-</head>
-
-<body>
-	<section id="gallery">
+{% block body_content %}
+<section id="gallery">
 		<div class="photos"></div>
 
 		<div class="mix">
-<<<<<<< HEAD
 			<img class="logo img-round" src="{{ app.asset_path }}/img/logo.png">
-=======
-                    <img class="logo img-round" src="{{ app.asset_path }}/img/logo.png">
->>>>>>> 4c442936b4113f0af4a1fef65ab813f697b9b9c8
 		</div>
 	</section>
 
@@ -92,107 +55,18 @@
 
 		<div class="container">
 			<div class="owl-carousel">
+				{% for project in projects %}
 				<div class="item">
 					<div class="project">
 						<div class="image">
 							<img src="http://lorempixel.com/400/250/">
 						</div>
-						<h4>〈社區許願心〉<br /><small>by Ming Chan</small></h4>
-						<p>讓社區人士寫出自己對所居住地區的期望、可改善的地方等等。純粹許願或寫上祝福語亦可。</p>
-
-					</div>
-				</div>
-				<div class="item">
-					<div class="project">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>〈中國剪紙〉<br /><small>by Ivy Wong</small></h4>
-						<p>剪紙為逐漸失傳的民藝，是次活動希望大家知道過節不一定要買不環保的飾物及引發大眾思考如何活用公共空間。</p>
-
-					</div>
-				</div>
-				<div class="item">
-					<div class="project">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>〈將軍澳半日遊〉<br /><small>by Lau Yan Ting Elton</small></h4>
-						<p>單車遊，除左圍住將軍澳踩一圈、簡單介紹社區歷史之外，我地會探訪當日其他唔同既小行動。最多人數：每批25人</p>
-						<p>費用: 全免 (自備單車，或可向附近單車店租借)</p>
-
-					</div>
-				</div>
-				<div class="item">
-					<div class="project">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>〈動起來〉<br /><small>by Bonnie Tsang</small></h4>
-						<p>邀請大家到户外，曬曬太陽，吸吸新鮮空氣，然做簡單的伸展運動，用十多分鐘時間讓身體放鬆。</p>
-
-					</div>
-				</div>
-				<div class="item">
-					<div class="project">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>〈中國剪紙〉<br /><small>by Ivy Wong</small></h4>
-						<p>1:00 pm - 5:00 pm @ 寶琳站平台</p>
+						<h4>{{ project.projectName }}<br /><small>by {{ project.projectHolder }}</small></h4>
+						<p>{{ project.projectDescription|raw }}</p>
 						<p></p>
-						<p>剪紙為逐漸失傳的民藝，是次活動希望大家知道過節不一定要買不環保的飾物及引發大眾思考如何活用公共空間。</p>
-
 					</div>
 				</div>
-				<div class="item">
-					<div class="project">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>〈中國剪紙〉<br /><small>by Ivy Wong</small></h4>
-						<p>1:00 pm - 5:00 pm @ 寶琳站平台</p>
-						<p></p>
-						<p>剪紙為逐漸失傳的民藝，是次活動希望大家知道過節不一定要買不環保的飾物及引發大眾思考如何活用公共空間。</p>
-
-					</div>
-				</div>
-				<div class="item">
-					<div class="project">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>〈中國剪紙〉<br /><small>by Ivy Wong</small></h4>
-						<p>1:00 pm - 5:00 pm @ 寶琳站平台</p>
-						<p></p>
-						<p>剪紙為逐漸失傳的民藝，是次活動希望大家知道過節不一定要買不環保的飾物及引發大眾思考如何活用公共空間。</p>
-
-					</div>
-				</div>
-				<div class="item">
-					<div class="project">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>〈中國剪紙〉<br /><small>by Ivy Wong</small></h4>
-						<p>1:00 pm - 5:00 pm @ 寶琳站平台</p>
-						<p></p>
-						<p>剪紙為逐漸失傳的民藝，是次活動希望大家知道過節不一定要買不環保的飾物及引發大眾思考如何活用公共空間。</p>
-
-					</div>
-				</div>
-				<div class="item">
-					<div class="project">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>〈中國剪紙〉<br /><small>by Ivy Wong</small></h4>
-						<p>1:00 pm - 5:00 pm @ 寶琳站平台</p>
-						<p></p>
-						<p>剪紙為逐漸失傳的民藝，是次活動希望大家知道過節不一定要買不環保的飾物及引發大眾思考如何活用公共空間。</p>
-
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</section>
@@ -203,36 +77,19 @@
 
 		<div class="container">
 			<div class="row">
+				{% for workshop in workshops %}
 				<div class="col-xs-12 col-md-4">
 					<div class="person">
 						<div class="image">
 							<img src="http://lorempixel.com/400/250/">
 						</div>
-						<h4>Meow Meow</h4>
-						<p>Meow is a Los Angeles based illustrator at Paramount Pictures Animation. Her clients have included&nbsp;Nickelodeon, Sony Pictures, and Disney.</p>
+						<h4>{{ workshop.workshopName }}</h4>
+						<p>{{ workshop.workshopDescription }}</p>
+						<p>{{ workshop.workshopDate }}</p>
 
 					</div>
 				</div>
-				<div class="col-xs-12 col-md-4">
-					<div class="person">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>Meow Meow</h4>
-						<p>Meow is a Los Angeles based illustrator at Paramount Pictures Animation. Her clients have included&nbsp;Nickelodeon, Sony Pictures, and Disney.</p>
-
-					</div>
-				</div>
-				<div class="col-xs-12 col-md-4">
-					<div class="person">
-						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
-						</div>
-						<h4>Meow Meow</h4>
-						<p>Meow is a Los Angeles based illustrator at Paramount Pictures Animation. Her clients have included&nbsp;Nickelodeon, Sony Pictures, and Disney.</p>
-
-					</div>
-				</div>
+				{% endfor %}
 				<div class="clearfix"></div>
 			</div>
 		</div>
@@ -252,8 +109,9 @@
 	<section class="support section">
 		<h2>支持組織</h2>
 		<div class="support-logo-container">
+			{% for sponsor in sponsors%}
 			<img class="support-logo" src="{{ app.asset_path }}/img/collaction.png">
-			<img class="support-logo" src="{{ app.asset_path }}/img/collaction.png">
+			{% endfor %}
 		</div>
 	</section>
 
@@ -262,7 +120,10 @@
 		<div class="">Made with <i class="fa fa-heart" style="color: #F44336;"></i> by Elton Lau, Samuel Ting, Nelson Chan and Himphen Hui.</div>
 		<div class="">Server and domain are powered by <a href="https://www.collaction.hk/s/h4s_100in1day">Collaction Team</a>.</div>
 	</section>
-</body>
+{% endblock %}
+
+
+{% block body_javascript %}
 
 <script>
 	function initMap() {
@@ -276,7 +137,7 @@
 			scrollwheel: false
 		});
 		var ctaLayer = new google.maps.KmlLayer({
-			url: 'http://www.100in1day.hk/mapTest/100in1day.kml',
+			url: '{{ app.asset_path }}/other/100in1day.kml',
 			map: map
 		});
 	}
@@ -284,7 +145,6 @@
 
 <script>
 	$(function () {
-
 		var options = {  
 			useEasing: true,
 			useGrouping: true,
@@ -299,7 +159,6 @@
 			demo.start();
 			demo2.start();
 		}, 400);
-
 		$('.owl-carousel').owlCarousel({
 			loop: true,
 			margin: 10,
@@ -321,8 +180,7 @@
 		})
 	});
 </script>
-
+<!--
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP_zgQmNpWvsby1y-GyBW5cIFevOJE1KI&signed_in=true&callback=initMap&sensor=false">
-</script>
-
-</html>
+</script>-->
+{% endblock %}

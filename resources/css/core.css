@@ -9,7 +9,7 @@ body {
 .logo {
 	height: 300px;
 	width: 300px;
-	margin: 10rem 0;
+	margin: 106px 0;
 }
 
 #gallery {
@@ -22,9 +22,9 @@ body {
 #gallery .photos {
 	position: absolute;
 	height: 100%;
-	width: 4000px;
+	width: 12000px;
 	background: transparent url(../img/100in1day_img3.jpg) repeat-x left top;
-	background-size: cover;
+/*	background-size: cover;*/
 	-moz-transform: translate3d(0, 0, 0);
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
@@ -80,7 +80,7 @@ section {
 	font-size: 2.4em;
 }
 
-.owl-nav .owl-prev, 
+.owl-nav .owl-prev,
 .owl-nav .owl-next {
 	display: inline-block;
 	margin: 1rem;
@@ -103,7 +103,7 @@ section {
 }
 
 .intro p {
-	color: #333;
+	color: #fff;
 	font-size: 1.125rem;
 }
 
@@ -112,7 +112,7 @@ section {
 	vertical-align: middle;
 	width: 100%;
 	height: 392px;
-	background: transparent url('http://lorempixel.com/1200/600/') no-repeat center top;
+	background: transparent url('../img/20169d78dab5df0d3813b53dd47303cc5e7.jpg') no-repeat center top;
 	background-size: cover;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
@@ -137,12 +137,18 @@ section {
 	padding: 0 20px;
 }
 
+.shoutout .text a {
+	color: #fff;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
 h2 {
 	display: inline-block;
 	vertical-align: middle;
-	font-size: 30px;
-	margin: 30px auto 50px auto;
-	padding: 0 10px;
+	font-size: 2rem;
+	margin: 3rem auto 4rem auto;
+	padding: 0 0.8rem;
 	color: #3a3a47;
 	font-family: "Lodgecode", "Helvetica Neue", helvetica, sans-serif;
 	text-transform: uppercase;
@@ -159,6 +165,12 @@ h4 {
 	color: #3a3a47;
 	font-size: 26px;
 	margin: 20px 0 10px 0;
+}
+
+.support-logo {
+	display: inline-block;
+	height: 90px;
+	width: auto;
 }
 
 #map {

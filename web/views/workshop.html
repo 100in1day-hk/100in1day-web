@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ workshop.workshopName }}{% endblock %}
+
+{% block body_content %}
+<p>{{ workshop.workshopName}}</p>
+<p>{{ workshop.workshopDescription}}</p>
+<p>{{ workshop.workshopDate}}</p>
+{% endblock %}
