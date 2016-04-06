@@ -59,7 +59,7 @@
 				<div class="item">
 					<div class="project">
 						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
+							<img src="{{ project.photos }}">
 						</div>
 						<h4>{{ project.projectName }}<br /><small>by {{ project.projectHolder }}</small></h4>
 						<p>{{ project.projectDescription|raw }}</p>
@@ -81,7 +81,7 @@
 				<div class="col-xs-12 col-md-4">
 					<div class="person">
 						<div class="image">
-							<img src="http://lorempixel.com/400/250/">
+							<img src="{{ workshop.photos }}">
 						</div>
 						<h4>{{ workshop.workshopName }}</h4>
 						<p>{{ workshop.workshopDescription }}</p>
@@ -119,6 +119,10 @@
 	<section class="footer">
 		<div class="">Made with <i class="fa fa-heart" style="color: #F44336;"></i> by Elton Lau, Samuel Ting, Nelson Chan and Himphen Hui.</div>
 		<div class="">Server and domain are powered by <a href="https://www.collaction.hk/s/h4s_100in1day">Collaction Team</a>.</div>
+		<div class="">
+		<a href="https://www.collaction.hk/" ><img title="Incu-Lab-Hong Kong" src="http://100in1day.hk/upload/support/incu-lab.png" height="30px"></a>
+		<a href="http://www.incu-lab.org/" ><img title="Collaction" src="http://100in1day.hk/upload/support/Logo_collaction_transparent_horizontal.png" height="60px"></a>
+		</div>
 	</section>
 {% endblock %}
 
