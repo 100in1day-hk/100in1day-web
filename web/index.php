@@ -14,25 +14,25 @@ use Symfony\Component\HttpFoundation\Response;
 
 $app->match('/', function() use ($app) {
 	$query = $app['db']->createQueryBuilder()
-				->select("projectName, projectDescription, projectHolder")
+				->select("idproject, projectName, projectDescription, projectHolder")
 				->from("project");
 
 	$projects = $app['db']->fetchAll($query);
 
 	$query = $app['db']->createQueryBuilder()
-				->select("projectLinkUrl, projectLinkTitle")
+				->select("idproject, projectLinkUrl, projectLinkTitle")
 				->from("project_link");
 
 	$projectLinks = $app['db']->fetchAll($query);
 
 	$query = $app['db']->createQueryBuilder()
-				->select("idproject, photoName, photoDescription")
+				->select("idproject, photoName, photoDescription, photoUrl")
 				->from("project_photo");
 
 	$projectPhotos = $app['db']->fetchAll($query);
 
 	$query = $app['db']->createQueryBuilder()
-				->select("workshopName, workshopDate, workshopDescription")
+				->select("idworkshop, workshopName, workshopDate, workshopDescription")
 				->from("workshop");
 
 	$workshops = $app['db']->fetchAll($query);
@@ -48,6 +48,29 @@ $app->match('/', function() use ($app) {
 				->from("workshop_photo");
 	$workshopPhotos = $app['db']->fetchAll($query);
 
+	for($i = 0; $i < count($projects); $i++){
+		$projects[$i]['photos'] = "http://lorempixel.com/400/250/";
+		for ($j = 0; $j < count($projectPhotos); $j++){
+			if ($projectPhotos[$j]['idproject'] == $projects[$i]['idproject']){
+
+				$projects[$i]['photos'] = $app['upload_path'].'/'.$projectPhotos[$j]['photoUrl'];
+				break;
+			}
+		}
+	}
+
+	for($i = 0; $i < count($workshops); $i++){
+		$workshops[$i]['photos'] = "http://lorempixel.com/400/250/";
+		for ($j = 0; $j < count($workshopPhotos); $j++){
+			if ($workshopPhotos[$j]['idworkshop'] == $workshops[$i]['idworkshop']){
+				$workshops[$i]['photos'] = $app['upload_path'].'/'.$workshopPhotos[$j]['photoUrl'];
+				break;
+			}
+		}
+	}
+
+
+
 	$query = $app['db']->createQueryBuilder()
 				->select("id, supportName, supportURL, supportLogo")
 				->from('support');
@@ -56,10 +79,6 @@ $app->match('/', function() use ($app) {
     return $app['twig']->render('index.html', array(
     		'projects' => $projects,
     		'workshops' => $workshops,
-    		'projectLinks' => $projectLinks,
-    		'workshopLinks' => $workshopLinks,
-    		'projectPhotos' => $projectPhotos,
-    		'workshopPhotos' => $workshopPhotos,
     		'supports' => $supports,
     	));
 });
