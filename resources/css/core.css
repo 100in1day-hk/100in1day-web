@@ -188,8 +188,16 @@ h4 {
 	max-width: none;
 }
 
-.press li {
-	font-size: 1.25rem;
+.press {
+	font-size: 1.125rem;
+}
+
+.press .press-item {
+	height: 4.2em;
+}
+
+.press .press-item img {
+	margin-bottom: 0.4rem;
 }
 
 .footer {
