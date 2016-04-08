@@ -6,6 +6,10 @@ body {
 	color: #7a7d81;
 }
 
+a:hover {
+	text-decoration: none;
+}
+
 .logo {
 	height: 300px;
 	width: 300px;
