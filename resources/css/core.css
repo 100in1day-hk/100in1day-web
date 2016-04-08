@@ -116,11 +116,14 @@ section {
 	vertical-align: middle;
 	width: 100%;
 	padding: 60px 0;
-	background: transparent url('../img/20169d78dab5df0d3813b53dd47303cc5e7.jpg') no-repeat center top;
-	background-size: cover;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
+}
+
+#about.shoutout .inner {
+	background: transparent url('../img/20169d78dab5df0d3813b53dd47303cc5e7.jpg') no-repeat center top;
+	background-size: cover;
 }
 
 .shoutout .text h3 {
