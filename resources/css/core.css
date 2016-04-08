@@ -111,7 +111,7 @@ section {
 	display: table-cell;
 	vertical-align: middle;
 	width: 100%;
-	height: 392px;
+	padding: 60px 0;
 	background: transparent url('../img/20169d78dab5df0d3813b53dd47303cc5e7.jpg') no-repeat center top;
 	background-size: cover;
 	-moz-border-radius: 2px;
@@ -171,6 +171,7 @@ h4 {
 	display: inline-block;
 	height: 90px;
 	width: auto;
+	margin: 5px;
 }
 
 #map {
@@ -183,9 +184,21 @@ h4 {
 	max-width: none;
 }
 
+.footer {
+	background-color: #d0d0d0;
+	color: #6D6D6D;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+    border-top: 1px solid #6D6D6D;
+	padding: 50px 10%;
+}
+
 .footer a {
-    color: #d2ebe3;
-    border-bottom: dotted 1px #a5d8c7;
+    color: #3D3D3D;
+    border-bottom: dotted 1px #6D6D6D;
+}
+
+.footer a.no_underline {
+    border-bottom: 0;
 }
 
 @-webkit-keyframes gallery {
