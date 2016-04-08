@@ -178,36 +178,16 @@
 			</div>
 		</div>
 	</section>
-	
-	<section id="youtube" class="container" style="margin-bottom: 100px;">
-		<div class="shoutout">
-			<div class="inner">
-				<div class="text">
-					<h3>回顧一日一百香港 2016</h3>
-				</div>
-			</div>
-		</div>
-	</section>
-
 
 	<section class="intro section">
 		<div class="embed-responsive embed-responsive-16by9 section" style="width: 100%;">
 			<iframe class="embed-responsive-item" width="1600" height="900" src="https://www.youtube-nocookie.com/embed/Q-wAmFQkcQA?rel=0&amp;showinfo=0;&vq=hd720" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</section>
-	
-	<section id="support" class="container" style="margin-bottom: 100px;">
-		<div class="shoutout">
-			<div class="inner">
-				<div class="text">
-					<h3>支持組織</h3>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<section class="support section">
 		<div class="support-logo-container">
+			<h2>支持組織</h2>
 			{% for support in supports%}
 			<a href="{{ support.supportURL }}"><img class="support-logo" title="{{ support.supportName }}" src="{{ app.upload_path }}/support/{{ support.supportLogo }}"></a>
 			{% endfor %}
