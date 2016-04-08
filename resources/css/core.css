@@ -200,6 +200,12 @@ h4 {
 	margin-bottom: 0.4rem;
 }
 
+#makersmoment {
+	background-image: url('../img/100in1day_img3');
+	background-position: left top;
+}
+
+
 .footer {
 	background-color: #d0d0d0;
 	color: #6D6D6D;
