@@ -107,6 +107,37 @@
 		</div>
 	</section>
 	
+	<section id="teammate" class="container" style="margin-bottom: 100px;">
+		<div class="shoutout">
+			<div class="inner">
+				<div class="text">
+					<h3>團隊</h3>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="people section">
+		<div class="container">
+			<div class="row">
+				{% for workshop in workshops %}
+				<div class="col-xs-12 col-md-4">
+					<div class="person">
+						<div class="image">
+							<img src="{{ workshop.photos }}">
+						</div>
+						<h4>{{ workshop.workshopName }}</h4>
+						<p>{{ workshop.workshopDescription }}</p>
+						<p>{{ workshop.workshopDate }}</p>
+
+					</div>
+				</div>
+				{% endfor %}
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</section>
+	
 	<section id="makersmoment" class="container" style="margin-bottom: 100px;">
 		<div class="shoutout">
 			<div class="inner">
@@ -147,19 +178,35 @@
 			</div>
 		</div>
 	</section>
-
-
-	<section class="intro section">
-		<h2>回顧一日一百香港 2016</h2>
-
-		<div class="embed-responsive embed-responsive-16by9 section" style="width: 100%;">
-			<iframe class="embed-responsive-item" width="1600" height="900" src="https://www.youtube-nocookie.com/embed/Q-wAmFQkcQA?rel=0&amp;showinfo=0;&vq=hd720" frameborder="0" allowfullscreen></iframe>
+	
+	<section id="youtube" class="container" style="margin-bottom: 100px;">
+		<div class="shoutout">
+			<div class="inner">
+				<div class="text">
+					<h3>回顧一日一百香港 2016</h3>
+				</div>
+			</div>
 		</div>
 	</section>
 
 
+	<section class="intro section">
+		<div class="embed-responsive embed-responsive-16by9 section" style="width: 100%;">
+			<iframe class="embed-responsive-item" width="1600" height="900" src="https://www.youtube-nocookie.com/embed/Q-wAmFQkcQA?rel=0&amp;showinfo=0;&vq=hd720" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</section>
+	
+	<section id="support" class="container" style="margin-bottom: 100px;">
+		<div class="shoutout">
+			<div class="inner">
+				<div class="text">
+					<h3>支持組織</h3>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="support section">
-		<h2>支持組織</h2>
 		<div class="support-logo-container">
 			{% for support in supports%}
 			<a href="{{ support.supportURL }}"><img class="support-logo" title="{{ support.supportName }}" src="{{ app.upload_path }}/support/{{ support.supportLogo }}"></a>

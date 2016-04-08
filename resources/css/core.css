@@ -184,7 +184,7 @@ h2:after {
 
 h4 {
 	color: #3a3a47;
-	font-size: 26px;
+	font-size: 20px;
 	margin: 20px 0 10px 0;
 }
 
@@ -227,6 +227,20 @@ h4 {
 	background-position: center bottom;
 }
 
+#support {
+	background-image: url('../img/100in1day_img3.jpg');
+	background-position: right center;
+}
+
+#youtube {
+	background-image: url('../img/100in1day_img3.jpg');
+	background-position: left bottom;
+}
+
+#teammate {
+	background-image: url('../img/100in1day_img3.jpg');
+	background-position: center top;
+}
 
 .footer {
 	background-color: #d0d0d0;
