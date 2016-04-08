@@ -183,6 +183,11 @@ h4 {
 	max-width: none;
 }
 
+.footer a {
+    color: #d2ebe3;
+    border-bottom: dotted 1px #a5d8c7;
+}
+
 @-webkit-keyframes gallery {
 	0% {
 		-moz-transform: translate3d(0, 0, 0);
