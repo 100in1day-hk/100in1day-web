@@ -188,6 +188,10 @@ h4 {
 	max-width: none;
 }
 
+.press li {
+	font-size: 1.25rem;
+}
+
 .footer {
 	background-color: #d0d0d0;
 	color: #6D6D6D;
