@@ -8,7 +8,8 @@ body {
 }
 
 .main {
-	display: none;
+	height: 1px;
+	overflow: hidden;
 }
 
 .loading-screen {
