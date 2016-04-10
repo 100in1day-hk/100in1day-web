@@ -76,10 +76,24 @@ $app->match('/', function() use ($app) {
 				->from('support');
 	$supports = $app['db']->fetchAll($query);			
 
+        $query = $app['db']->createQueryBuilder()
+                                ->select("idmedia, mediaTitle, mediaUrl, mediaPhotoUrl")
+                                ->from("media");
+        $media = $app['db']->fetchAll($query);
+
+        $query = $app['db']->createQueryBuilder()
+            ->select("idcommittee, committeeName, committeeImage")
+            ->from("committee");
+        $committees = $app['db']->fetchAll($query);
+        for ($i = 0; $i < count($committees); $i ++){
+            $committees[$i]['committeeImage'] = "http://lorempixel.com/400/250/";
+        }
     return $app['twig']->render('index.html', array(
     		'projects' => $projects,
     		'workshops' => $workshops,
     		'supports' => $supports,
+                'media' => $media,
+                'committees' => $committees
     	));
 });
 
@@ -144,3 +158,4 @@ $app->match('project/{id}', function($id) use ($app){
 
 
 $app->run();
+?>

@@ -58,7 +58,7 @@
 		<h2>在香港發生的一日一百</h2>
 
 		<div class="container">
-			<div class="owl-carousel">
+			<div class="owl-carousel" id="projects">
 				{% for project in projects %}
 				<div class="item">
 					<div class="project">
@@ -75,7 +75,7 @@
 		</div>
 	</section>
 	
-	<section id="workshop" class="container" style="margin-bottom: 100px;">
+	<section id="workshop" style="margin-bottom: 100px;">
 		<div class="shoutout">
 			<div class="inner">
 				<div class="text">
@@ -107,7 +107,7 @@
 		</div>
 	</section>
 	
-	<section id="teammate" class="container" style="margin-bottom: 100px;">
+	<section id="teammate" style="margin-bottom: 100px;">
 		<div class="shoutout">
 			<div class="inner">
 				<div class="text">
@@ -120,15 +120,13 @@
 	<section class="people section">
 		<div class="container">
 			<div class="row">
-				{% for workshop in workshops %}
-				<div class="col-xs-12 col-md-4">
+				{% for committee in committees %}
+				<div class="col-xs-4 col-sm-4 col-md-4">
 					<div class="person">
 						<div class="image">
-							<img src="{{ workshop.photos }}">
+                                                    <img src="{{ committee.committeeImage }}" />
 						</div>
-						<h4>{{ workshop.workshopName }}</h4>
-						<p>{{ workshop.workshopDescription }}</p>
-						<p>{{ workshop.workshopDate }}</p>
+						<p>{{ committee.committeeName }}</p>
 
 					</div>
 				</div>
@@ -138,7 +136,7 @@
 		</div>
 	</section>
 	
-	<section id="makersmoment" class="container" style="margin-bottom: 100px;">
+	<section id="makersmoment" style="margin-bottom: 100px;">
 		<div class="shoutout">
 			<div class="inner">
 				<div class="text">
@@ -150,32 +148,25 @@
 
 	<section class="people section">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-md-4">
+                    {% set k = 0 %}
+                    {% for medium in media  %}
+                        {% set k = k + 1 %}
+                            {% if k % 3 == 0 %}
+                                <div class="row">
+
+                            {% endif %}
+                                <div class="col-xs-12 col-sm-4 col-md-4">
 					<div class="media-item">
 						<img src="{{ app.asset_path }}/img/media-stand.png" />
-						<a href="https://thestandnews.com/society/%E5%B0%88%E8%A8%AA-%E6%B4%BB%E8%BA%8D%E5%85%AC%E6%B0%91%E7%9A%84%E6%90%96%E7%B1%83-100in1day%E5%89%B5%E8%BE%A6%E4%BA%BAdiego-cuadros-rojas/" target="_blank">
-							【專訪】活躍公民的搖籃　100in1Day創辦人Diego CUADROS ROJAS @ 立場新聞
+                                                <a href="{{ medium.mediaUrl }}" target="_blank">
+                                                    {{ medium.mediaTitle }}
 						</a>
 					</div>
 				</div>
-				<div class="col-xs-12 col-md-4">
-					<div class="media-item">
-						<img src="{{ app.asset_path }}/img/media-stand.png" />
-						<a href="https://thestandnews.com/society/%E5%B0%88%E8%A8%AA-%E6%B4%BB%E8%BA%8D%E5%85%AC%E6%B0%91%E7%9A%84%E6%90%96%E7%B1%83-100in1day%E5%89%B5%E8%BE%A6%E4%BA%BAdiego-cuadros-rojas/" target="_blank">
-							【專訪】活躍公民的搖籃　100in1Day創辦人Diego CUADROS ROJAS @ 立場新聞
-						</a>
-					</div>
-				</div>
-				<div class="col-xs-12 col-md-4">
-					<div class="media-item">
-						<img src="{{ app.asset_path }}/img/media-stand.png" />
-						<a href="https://thestandnews.com/society/%E5%B0%88%E8%A8%AA-%E6%B4%BB%E8%BA%8D%E5%85%AC%E6%B0%91%E7%9A%84%E6%90%96%E7%B1%83-100in1day%E5%89%B5%E8%BE%A6%E4%BA%BAdiego-cuadros-rojas/" target="_blank">
-							【專訪】活躍公民的搖籃　100in1Day創辦人Diego CUADROS ROJAS @ 立場新聞
-						</a>
-					</div>
-				</div>
-			</div>
+                            {% if k % 3 == 0 %}
+                                </div>
+                            {% endif %}
+                    {% endfor %}
 		</div>
 	</section>
 
@@ -285,4 +276,5 @@
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP_zgQmNpWvsby1y-GyBW5cIFevOJE1KI&signed_in=true&callback=initMap&sensor=false">
 </script>
+
 {% endblock %}
