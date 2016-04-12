@@ -78,6 +78,8 @@ img {
 
 img.img-round {
 	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
 }
 
 section {

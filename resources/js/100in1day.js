@@ -24,7 +24,7 @@ $(document).ready(function(){
     }).done(function(data){
         var content = '';
         $.each(data, function(k,val){
-            
+
             content += '<div class="col-xs-12 col-md-4">';
             content += '        <div class="person">';
             content += '                <div class="image">';
@@ -44,7 +44,7 @@ $(document).ready(function(){
     var committee_fetch = $.ajax({
         "url" : SERVER_URL + "/api/committees"
     }).done(function(data){
-       var content = '';
+        var content = '';
         $.each(data, function(k, val){
             content += '<div class="col-xs-4 col-sm-4 col-md-4">';
             content += '        <div class="person">';
@@ -106,41 +106,42 @@ $(document).ready(function(){
             medium_fetch,
             committee_fetch
           ).done(function () {
-		var options = {  
-			useEasing: true,
-			useGrouping: true,
-			separator: ',',
-			decimal: '.',
-			prefix: '',
-			suffix: ''
-		};
-		var demo = new CountUp("ideaCount", 0, 133, 0, 2.5, options);
-		var demo2 = new CountUp("ideaCount2", 0, 33, 0, 2.5, options);
-		setTimeout(function () {
-			demo.start();
-			demo2.start();
-		}, 400);
-		$('.owl-carousel').owlCarousel({
-			loop: true,
-			margin: 10,
-			nav: true,
-			responsive: {
-				0: {
-					items: 1
-				},
-				600: {
-					items: 3
-				},
-				1000: {
-					items: 5
-				}
-			},
-			autoplay: true,
-			autoplayTimeout: 3000,
-			autoplayHoverPause: true
-		})
-	});
-/*	$('.loading-screen').fadeOut(500, function() {
-			$('.main').height('auto');
-		}); */
+        var options = {  
+            useEasing: true,
+            useGrouping: true,
+            separator: ',',
+            decimal: '.',
+            prefix: '',
+            suffix: ''
+        };
+        var demo = new CountUp("ideaCount", 0, 133, 0, 2.5, options);
+        var demo2 = new CountUp("ideaCount2", 0, 33, 0, 2.5, options);
+        setTimeout(function () {
+            demo.start();
+            demo2.start();
+        }, 400);
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            },
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true
+        })
+    });
+    $('.loading-screen').fadeOut(500, function() {
+        $('.main').height('auto');
+    });
 });
+    
