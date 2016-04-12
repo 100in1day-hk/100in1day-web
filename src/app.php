@@ -6,7 +6,7 @@ $app->register(new Acme\DatabaseServiceProvider());
 
  */
 $app['debug'] = true;
-$app['server_url'] = 'http://127.0.0.1/~samuelting';
+$app['server_url'] = 'http://localhost:8001';
 
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -25,6 +25,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     ),
 ));
 
-$app['asset_path'] = $app['server_url'].'/100in1day/resources';
+$app['asset_path'] = $app['server_url'].'/resources';
 $app['upload_path'] = $app['server_url'].'/upload';
+$app['api_path'] = $app['server_url'].'/api';
 

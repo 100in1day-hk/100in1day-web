@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 
 $app->match('/', function() use ($app) {
+    /*
 	$query = $app['db']->createQueryBuilder()
 				->select("idproject, projectName, projectDescription, projectHolder")
 				->from("project");
@@ -88,6 +89,7 @@ $app->match('/', function() use ($app) {
         for ($i = 0; $i < count($committees); $i ++){
             $committees[$i]['committeeImage'] = "http://lorempixel.com/400/250/";
         }
+     */
     return $app['twig']->render('index.html', array(
     		'projects' => $projects,
     		'workshops' => $workshops,

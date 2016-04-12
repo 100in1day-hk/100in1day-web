@@ -58,19 +58,8 @@
 		<h2>在香港發生的一日一百</h2>
 
 		<div class="container">
-			<div class="owl-carousel" id="projects">
-				{% for project in projects %}
-				<div class="item">
-					<div class="project">
-						<div class="image">
-							<img src="{{ project.photos }}">
-						</div>
-						<h4>{{ project.projectName }}<br /><small>by {{ project.projectHolder }}</small></h4>
-						<p>{{ project.projectDescription|raw }}</p>
-						<p></p>
-					</div>
-				</div>
-				{% endfor %}
+			<div class="owl-carousel" id="project_list">
+				
 			</div>
 		</div>
 	</section>
@@ -88,21 +77,7 @@
 	<section class="people section">
 
 		<div class="container">
-			<div class="row">
-				{% for workshop in workshops %}
-				<div class="col-xs-12 col-md-4">
-					<div class="person">
-						<div class="image">
-							<img src="{{ workshop.photos }}">
-						</div>
-						<h4>{{ workshop.workshopName }}</h4>
-						<p>{{ workshop.workshopDescription }}</p>
-						<p>{{ workshop.workshopDate }}</p>
-
-					</div>
-				</div>
-				{% endfor %}
-				<div class="clearfix"></div>
+			<div class="row" id="workshop_list">
 			</div>
 		</div>
 	</section>
@@ -119,19 +94,7 @@
 
 	<section class="people section">
 		<div class="container">
-			<div class="row">
-				{% for committee in committees %}
-				<div class="col-xs-4 col-sm-4 col-md-4">
-					<div class="person">
-						<div class="image">
-                                                    <img src="{{ committee.committeeImage }}" />
-						</div>
-						<p>{{ committee.committeeName }}</p>
-
-					</div>
-				</div>
-				{% endfor %}
-				<div class="clearfix"></div>
+			<div class="row" id="committee_list">
 			</div>
 		</div>
 	</section>
@@ -147,26 +110,8 @@
 	</section>
 
 	<section class="people section">
-		<div class="container">
-                    {% set k = 0 %}
-                    {% for medium in media  %}
-                        {% set k = k + 1 %}
-                            {% if k % 3 == 0 %}
-                                <div class="row">
-
-                            {% endif %}
-                                <div class="col-xs-12 col-sm-4 col-md-4">
-					<div class="media-item">
-						<img src="{{ app.asset_path }}/img/media-stand.png" />
-                                                <a href="{{ medium.mediaUrl }}" target="_blank">
-                                                    {{ medium.mediaTitle }}
-						</a>
-					</div>
-				</div>
-                            {% if k % 3 == 0 %}
-                                </div>
-                            {% endif %}
-                    {% endfor %}
+		<div class="container" id="medium_list">
+                    
 		</div>
 	</section>
 
@@ -178,10 +123,7 @@
 
 	<section class="support section">
 		<h2>支持組織</h2>
-		<div class="support-logo-container">
-			{% for support in supports%}
-			<a href="{{ support.supportURL }}"><img class="support-logo" title="{{ support.supportName }}" src="{{ app.upload_path }}/support/{{ support.supportLogo }}"></a>
-			{% endfor %}
+		<div class="support-logo-container" id="support_list">
 		</div>
 	</section>
 
@@ -231,7 +173,7 @@
 </script>
 
 <script>
-	$(function () {
+	/* $(function () {
 		var options = {  
 			useEasing: true,
 			useGrouping: true,
@@ -265,7 +207,7 @@
 			autoplayTimeout: 3000,
 			autoplayHoverPause: true
 		})
-	});
+	}); */
 	
 	$(window).load(function() {
 		$('.loading-screen').fadeOut(500, function() {
@@ -274,7 +216,15 @@
 	});
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP_zgQmNpWvsby1y-GyBW5cIFevOJE1KI&signed_in=true&callback=initMap&sensor=false">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP_zgQmNpWvsby1y-GyBW5cIFevOJE1KI&signed_in=true&callback=initMap&sensor=false"></script>
+	<script src="{{ app.asset_path }}/js/countUp.min.js"></script>
+	<script src="{{ app.asset_path }}/js/owl.carousel.js"></script>
+<script>
+    var SERVER_URL = "{{ app.server_url }}";
+    var UPLOAD_URL = "{{ app.upload_path }}";
+    var ASSET_URL = "{{ app.asset_path }}";
 </script>
+
+<script src="{{ app.asset_path }}/js/100in1day.js"></script>
 
 {% endblock %}

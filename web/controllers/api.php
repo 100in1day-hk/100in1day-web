@@ -4,52 +4,69 @@ $api_controller = $app['controllers_factory'];
 
 $api_controller->get('/projects', function() use($app){
 	$query = $app['db']->createQueryBuilder()
-				->select("idproject, projectName, projectDescription, projectHolder")
+				->select("idproject, COALESCE(projectName, '') AS projectName, COALESCE(projectDescription, '') AS projectDescription, COALESCE(projectHolder, '') AS projectHolder")
 				->from("project");
 
 	$projects = $app['db']->fetchAll($query);
-
-        return $app->json($projects);
-});
-
-$api_controller->get('/projectLinks', function() use ($app){
-	$query = $app['db']->createQueryBuilder()
+    	$query = $app['db']->createQueryBuilder()
 				->select("idproject, projectLinkUrl, projectLinkTitle")
 				->from("project_link");
 
 	$projectLinks = $app['db']->fetchAll($query);
-        return $app->json($projectLinks);
-});
-$api_controller->get('/projectPhotos', function() use ($app){
-	$query = $app['db']->createQueryBuilder()
+        $query = $app['db']->createQueryBuilder()
 				->select("idproject, photoName, photoDescription, photoUrl")
 				->from("project_photo");
 
 	$projectPhotos = $app['db']->fetchAll($query);
-        return $app->json($projectPhotos);
+
+	for($i = 0; $i < count($projects); $i++){
+		$projects[$i]['photos'] = "http://lorempixel.com/400/250/";
+		for ($j = 0; $j < count($projectPhotos); $j++){
+			if ($projectPhotos[$j]['idproject'] == $projects[$i]['idproject']){
+				$projects[$i]['photos'] = $app['upload_path'].'/'.$projectPhotos[$j]['photoUrl'];
+				break;
+			}
+		}
+                for ($j = 0; $j < count($projectLinks); $j++){
+			if ($projectLinks[$j]['idproject'] == $projects[$i]['idproject']){
+				$projects[$i]['photos'] = $projectLinks[$j];
+			}
+		}
+	}
+
+        return $app->json($projects);
 });
+
 $api_controller->get('/workshops', function() use ($app){
 	$query = $app['db']->createQueryBuilder()
-				->select("idworkshop, workshopName, workshopDate, workshopDescription")
+				->select("idworkshop, COALESCE(workshopName, '') AS workshopName, workshopDate, COALESCE(workshopDescription, '') AS workshopDescription")
 				->from("workshop");
-
 	$workshops = $app['db']->fetchAll($query);
-        return $app->json($workshops);
-});
-$api_controller->get('/workshopsLinks', function() use ($app){
 	$query = $app['db']->createQueryBuilder()
 				->select("workshopLinkUrl, workshopLinkTitle")
 				->from("workshop_link");
 	$workshopLinks = $app['db']->fetchAll($query);
-        return $app->json($workshopLinks);
-});
-$api_controller->get('/workshopPhtots', function() use ($app){
 	$query = $app['db']->createQueryBuilder()
 				->select("idworkshop, photoName, photoDescription, photoUrl")
 				->from("workshop_photo");
 	$workshopPhotos = $app['db']->fetchAll($query);
-        return $app->json($workshopPhotos);
+	for($i = 0; $i < count($workshops); $i++){
+		$workshops[$i]['photos'] = "http://lorempixel.com/400/250/";
+		for ($j = 0; $j < count($workshopPhotos); $j++){
+			if ($workshopPhotos[$j]['idworkshop'] == $workshops[$i]['idworkshop']){
+				$workshops[$i]['photos'] = $app['upload_path'].'/'.$workshopPhotos[$j]['photoUrl'];
+				break;
+			}
+                }
+                for ($j = 0; $j < count($workshopLinks); $j++){
+			if ($workshopLinks[$j]['idworkshop'] == $workshops[$i]['idworkshop']){
+				$workshops[$i]['links'] = $workshopLinks[$j];
+			}
+		}
+	}
+        return $app->json($workshops);
 });
+
 $api_controller->get('/supports', function() use ($app){
 	$query = $app['db']->createQueryBuilder()
 				->select("id, supportName, supportURL, supportLogo")
