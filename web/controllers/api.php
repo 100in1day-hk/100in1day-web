@@ -86,6 +86,9 @@ $api_controller->get('/committees', function() use ($app){
             ->select("idcommittee, committeeName, committeeImage")
             ->from("committee");
         $committees = $app['db']->fetchAll($query);
+	for($i = 0; $i < count($committees); $i++){
+		$committees[$i]['committees'] = "http://lorempixel.com/400/250/";
+	}
         return $app->json($committees);
 });
 
